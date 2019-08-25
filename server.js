@@ -3,8 +3,8 @@ var mongojs = require("mongojs");
 var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
-var exphbs = require("express-handlebars");
-var bodyParser = requre("body-parser");
+var expressHandlebars = require("express-handlebars");
+var bodyParser = require("body-parser");
 // var logger = require("morgan");
 
 // port set up
