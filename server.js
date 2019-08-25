@@ -4,70 +4,48 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 var exphbs = require("express-handlebars");
+var bodyParser = requre("body-parser");
 // var logger = require("morgan");
+
+// port set up
+var PORT = process.env.PORT || 3000;
 
 //express initiation
 var app = express();
 
-//database configuration
-var databaseUrl = "scraper";
-var collections = ["scrapedData"];
-
-//mongojs configuration to db variable
-var db = mongojs(databaseUrl, collections);
-db.on("error", function(error) {
-    console.log("Database Error:", error);
-});
-
-//logger
-app.get("/", function(req, res) {
-    res.send("Hello world");
-});
-// rout data
-app.get("/all", function(req, res) {
-    db.scrapedData.find({}, function (err, found) {
-        if (err) {
-            console.log(err);
-        }
-        else {
-            res.json(found);
-        }
-    });
-});
-
-//router
+//express router
 var router = express.Router();
 
-app.get("/scrape", function(req, res) {
-    request("https://www.npr.org/sections/news/", function(error, response, html) {
-        var $ = cheerio.load(html);
+//public folder directory
+app.use(express.static(__dirname + "/public"));
 
-        $(".title").each(function(i, element) {
-            var title = $(this).children("a").text();
-            var link = $(this).children("a").attr("href");
+//connection of handlebars to express
+app.engine("handlebars", expressHandlebars({
+    defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
 
-            if (title && link) {
-                db.scrapedData.save({
-                    title: title,
-                    link: link
-                },
-                function(error, saved) {
-                    if (error) {
-                        console.log(error);
-                    }
+//bodyParser in app
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
-                    else {
-                        console.log(saved);
-                    }
-                });
-                
-            }
-        });
-    });
+//request through router
+app.use(router);
 
-    res.send("Scrape complete");
-})
+//deployed database or local database
+var db = process.env.MONGODB_URI || "mongodb://localhost/mondoHeadlines";
 
-app.listen(3000, function() {
-    console.log("App running on port 3000");
+//connection of mongoose to database
+mongoose.connect(db, function(error) {
+    if (error) {
+        console.log(error);
+    }
+    else {
+        console.log("mongoose connection successful");
+    }
+});
+
+app.listen(PORT, function() {
+    console.log("Listen on port:" + PORT);
 });
