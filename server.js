@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 // var logger = require("morgan");
 
 // port set up
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 8080;
 
 //express initiation
 var app = express();

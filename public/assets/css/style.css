@@ -5,7 +5,7 @@ html {
 
 body {
     margin-bottom: 80px;
-    background-image: url("../public/assets/images/Earth1-Abstract_News_Motion_Background_Video_Loop_SampleStill.jpg");
+    background-image: url("../public/assets/images/earthview.jpg");
 }
 
 .footer {
@@ -39,7 +39,7 @@ body {
     bottom: 0;
     right: 0;
     height: 100%;
-    background-image: url("../public/assets/images/hd-background.jpg");
+    background-image: url("../public/assets/images/background.jpg");
     background-size: cover;
 }
 
