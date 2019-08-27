@@ -1,8 +1,8 @@
 var express = require("express");
-var mongojs = require("mongojs");
+// var mongojs = require("mongojs");
 var mongoose = require("mongoose");
-var axios = require("axios");
-var cheerio = require("cheerio");
+// var axios = require("axios");
+// var cheerio = require("cheerio");
 var expressHandlebars = require("express-handlebars");
 var bodyParser = require("body-parser");
 // var logger = require("morgan");
@@ -15,6 +15,9 @@ var app = express();
 
 //express router
 var router = express.Router();
+
+//require router
+require("./config/routes")(router);
 
 //public folder directory
 app.use(express.static(__dirname + "/public"));
