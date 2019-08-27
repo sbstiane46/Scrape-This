@@ -1,7 +1,7 @@
 
 module.exports = function(router) {
     //render homepage
-    router.get("/", function(req, res) {
+    router.get("/home", function(req, res) {
         res.render("home");
     });
     // render saved handlebars page

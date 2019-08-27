@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 // var logger = require("morgan");
 
 // port set up
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 
 //express initiation
 var app = express();
@@ -17,7 +17,7 @@ var app = express();
 var router = express.Router();
 
 //require router
-require("./config/routes")(router);
+require("./config/routes.js")(router);
 
 //public folder directory
 app.use(express.static(__dirname + "/public"));
@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({
 app.use(router);
 
 //deployed database or local database
-var db = process.env.MONGODB_URI || "mongodb://localhost/mondoHeadlines";
+var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadLines";
 
 //connection of mongoose to database
 mongoose.connect(db, function(error) {
