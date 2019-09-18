@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 // var logger = require("morgan");
 
 // port set up
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 //express initiation
 var app = express();
@@ -16,7 +16,7 @@ var app = express();
 //express router
 var router = express.Router();
 
-//require router
+// //require router
 require("./config/routes.js")(router);
 
 //public folder directory
@@ -36,6 +36,7 @@ app.use(bodyParser.urlencoded({
 //request through router
 app.use(router);
 
+
 //deployed database or local database
 var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadLines";
 
@@ -49,6 +50,9 @@ mongoose.connect(db, function(error) {
     }
 });
 
+//listen on port
 app.listen(PORT, function() {
-    console.log("Listen on port:" + PORT);
+    console.log("listening on port:" + PORT);
 });
+
+

@@ -5,7 +5,7 @@ html {
 
 body {
     margin-bottom: 80px;
-    background-image: url("../public/assets/images/earthview.jpg");
+    background-image: url("../images/earthview.jpg");
 }
 
 .footer {
@@ -39,7 +39,7 @@ body {
     bottom: 0;
     right: 0;
     height: 100%;
-    background-image: url("../public/assets/images/background.jpg");
+    background-image: url("../images/backgrund.jpg");
     background-size: cover;
 }
 
