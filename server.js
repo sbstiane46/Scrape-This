@@ -38,10 +38,10 @@ app.use(router);
 
 
 //deployed database or local database
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadLines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadLines";
 
 //connection of mongoose to database
-mongoose.connect(db, function(error) {
+mongoose.connect(MONGODB_URI, function(error) {
     if (error) {
         console.log(error);
     }
