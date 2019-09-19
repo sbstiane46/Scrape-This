@@ -2,11 +2,11 @@
 //==============
 
 //Bring in the Scrape function from our scripts directory
-var scrape = require("../scripts/scrape.js");
+var scrape = require("../scripts/scrape");
 
 //Bring headlines and notes from controller
-var headlinesController = require("../controllers/headlines.js");
-var noteController = require("../controllers/notes.js");
+var headlinesController = require("../controllers/headlines");
+var notesController = require("../controllers/notes");
 
 
 module.exports = function(router) {
@@ -20,7 +20,7 @@ module.exports = function(router) {
      });
 
      router.get("/api/fetch", function(req, res) {
-         headlinesController.fetch(function(err,docs) {
+         headlinesController.fetch(function(err, docs) {
              if (!docs || docs.insertedCount === 0) {
                  res.json({
                      message: "No new articles today."

@@ -1,8 +1,8 @@
 // Controller for our notes
 // ========================
 
-var Note = require("../models/Note.js");
-var makeDate = require("../scripts/date.js");
+var Note = require("../models/Note");
+var makeDate = require("../scripts/date");
 
 module.exports = {
     get: function(data, cb) {

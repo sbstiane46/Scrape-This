@@ -107,7 +107,7 @@ $(document).ready(function() {
 
     function handleArticleDelete() {
 
-        var handleArticleDelete = $(this).parents(".panel").data();
+        var articleToDelete = $(this).parents(".panel").data();
 
         $.ajax({
             method: "DELETE",

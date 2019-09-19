@@ -1,9 +1,9 @@
 //Bring in scrape to script amd makeDate scripts
-var scrape = require("../scripts/scrape.js");
-var makeDate = require("../scripts/date.js");
+var scrape = require("../scripts/scrape");
+var makeDate = require("../scripts/date");
 
 //Bring in the Headline and Note mongoose models
-var Headline = require("../models/Headline.js");
+var Headline = require("../models/Headline");
 
 module.exports = {
     fetch: function(cb) {
