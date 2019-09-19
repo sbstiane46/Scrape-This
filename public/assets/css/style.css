@@ -48,11 +48,12 @@ body {
     top: 30%;
     width: 100%;
     text-align: center;
+    
 }
 
 .jumbotron .caption h1,
 .jumbotron .caption p {
-    color: white;
+    color: black;
 }
 
 .jumbotron h1 {
